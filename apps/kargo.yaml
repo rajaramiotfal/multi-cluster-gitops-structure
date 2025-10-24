@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: demoapp
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      elements:
+      - env: dev
+        server: https://host.docker.internal:6510
+      - env: qa
+        server: https://host.docker.internal:6514
+      - env: prod
+        server: https://host.docker.internal:6522
+  template:
+    metadata:
+      name: demo-{{env}}
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/rajaramiotfal/multi-cluster-gitops.git
+        targetRevision: main
+        path: envs/{{env}}
+      destination:
+        server: '{{server}}'
+        namespace: demo-{{env}}
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true
