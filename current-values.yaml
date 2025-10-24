@@ -1,0 +1,7 @@
+USER-SUPPLIED VALUES:
+api:
+  adminAccount:
+    passwordHash: .0vh6jOshy8TT/9e1R6eZIr/8TxCmEqkIjJ5V2zEcxIf3ZK
+    tokenSigningKey: 899f7bed052748aa93c6cfd093b7ae47
+  extraArgs:
+    - --insecure-skip-oidc
