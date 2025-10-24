@@ -1,0 +1,10 @@
+apiVersion: kargo.akuity.io/v1alpha1
+kind: Warehouse
+metadata:
+  name: demoapp-prod
+  namespace: demoapp
+spec:
+  subscriptions:
+  - image:
+      repoURL: docker.io/rajarammurali513/demoapp
+      imageSelectionStrategy: SemVer

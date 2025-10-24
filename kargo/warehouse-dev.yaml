@@ -1,8 +1,8 @@
 apiVersion: kargo.akuity.io/v1alpha1
 kind: Warehouse
 metadata:
-  name: demoapp-warehouse
-  namespace: kargo
+  name: demoapp-dev
+  namespace: demoapp
 spec:
   subscriptions:
   - image:

@@ -2,12 +2,12 @@ apiVersion: kargo.akuity.io/v1alpha1
 kind: Stage
 metadata:
   name: qa
-  namespace: kargo
+  namespace: demoapp
 spec:
   requestedFreight:
   - origin:
-      kind: Stage
-      name: dev
+      kind: Warehouse
+      name: demoapp-qa
   promotionTemplate:
     spec:
       steps:
@@ -23,5 +23,5 @@ spec:
           - name: docker.io/rajarammurali513/demoapp
       - uses: git-commit
         config:
-          message: "Promote image to QA"
+          message: "Promote image to qa"
       - uses: git-push
