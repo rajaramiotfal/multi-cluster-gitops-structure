@@ -3,5 +3,3 @@ kind: Project
 metadata:
   name: demoapp
   namespace: kargo
-spec:
-  description: "DemoApp multi-environment GitOps project"
