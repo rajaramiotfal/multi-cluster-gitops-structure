@@ -8,11 +8,20 @@ spec:
   - origin:
       kind: Stage
       name: qa
-  promotionMechanisms:
-    gitRepoUpdates:
-    - repoURL: https://github.com/rajaramiotfal/multi-cluster-gitops.git
-      writeBranch: main
-      kustomize:
-        images:
-        - image: docker.io/rajarammurali513/demoapp
+  promotionTemplate:
+    spec:
+      steps:
+      - uses: git-clone
+        config:
+          repoURL: https://github.com/rajaramiotfal/multi-cluster-gitops.git
+          checkout:
+            branch: main
+      - uses: kustomize-set-image
+        config:
           path: envs/prod
+          images:
+          - name: docker.io/rajarammurali513/demoapp
+      - uses: git-commit
+        config:
+          message: "Promote image to Prod"
+      - uses: git-push

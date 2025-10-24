@@ -7,4 +7,4 @@ spec:
   subscriptions:
   - image:
       repoURL: docker.io/rajarammurali513/demoapp
-      tagSelectionStrategy: SemVer
+      imageSelectionStrategy: SemVer
