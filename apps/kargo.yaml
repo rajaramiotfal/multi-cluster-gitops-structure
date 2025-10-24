@@ -19,7 +19,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/rajaramiotfal/multi-cluster-gitops.git
+        repoURL: https://github.com/rajaramiotfal/multi-cluster-gitops-structure.git
         targetRevision: main
         path: envs/{{env}}
       destination:
